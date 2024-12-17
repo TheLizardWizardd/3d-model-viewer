@@ -9,22 +9,27 @@
     <style>
         body {
             margin: 0;
+            background-color: #ffffff; /* Set body background (you can adjust this color) */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
+
+        model-viewer {
+            --poster-color: transparent; /* Removes poster background */
+        }
     </style>
 </head>
 <body>
 
-    <!-- Animated 3D Model Viewer -->
+    <!-- Animated 3D Model Viewer with Transparent Background -->
     <model-viewer src="Robot.glb" 
                   alt="Animated Robot Model"
                   auto-rotate
                   autoplay
                   camera-controls
-                  style="width: 80%; height: 80%;">
+                  style="width: 80%; height: 80%; background-color: transparent;">
     </model-viewer>
 
 </body>
