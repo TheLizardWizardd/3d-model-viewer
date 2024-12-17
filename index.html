@@ -9,15 +9,16 @@
     <style>
         body {
             margin: 0;
-            background-color: #ffffff; /* Set body background (you can adjust this color) */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.1)); /* Optional background */
         }
 
         model-viewer {
-            --poster-color: transparent; /* Removes poster background */
+            --poster-color: transparent; /* Ensures no background during loading */
+            background-color: transparent; /* Removes default background */
         }
     </style>
 </head>
