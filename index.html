@@ -3,39 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Model Viewer - Transparent</title>
+    <title>3D Animated Robot</title>
+    <!-- Include model-viewer library -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <style>
         body {
             margin: 0;
-            height: 100vh;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); /* Optional background */
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.1)); /* Optional background */
         }
 
         model-viewer {
-            background-color: transparent; /* Transparent background */
-            --poster-color: transparent;   /* Transparent poster background */
-            pointer-events: none;          /* Ensures no interference */
-        }
-
-        /* Force transparency for canvas */
-        model-viewer::part(canvas) {
-            background-color: transparent !important;
+            --poster-color: transparent; /* Ensures no background during loading */
+            background-color: transparent; /* Removes default background */
         }
     </style>
 </head>
 <body>
 
-    <!-- 3D Viewer with Transparent Background -->
-    <model-viewer src="Robot.glb"
-                  alt="Animated Robot"
-                  camera-controls
+    <!-- Animated 3D Model Viewer with Transparent Background -->
+    <model-viewer src="Robot.glb" 
+                  alt="Animated Robot Model"
                   auto-rotate
                   autoplay
-                  style="width: 80%; height: 80%;"></model-viewer>
+                  camera-controls
+                  style="width: 80%; height: 80%; background-color: transparent;">
+    </model-viewer>
 
 </body>
 </html>
