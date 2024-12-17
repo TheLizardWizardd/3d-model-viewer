@@ -3,21 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Model Viewer - Transparent</title>
+    <title>3D Model Viewer - Blurred Background</title>
+    <!-- Include model-viewer library -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <style>
+        /* Background Image Container */
         body {
             margin: 0;
             height: 100vh;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); /* Optional background */
             display: flex;
             justify-content: center;
             align-items: center;
+            background: url('Stray.png') no-repeat center center fixed; /* Background image */
+            background-size: cover; /* Cover entire screen */
+            filter: blur(8px); /* Blur effect */
+            overflow: hidden;
+        }
+
+        /* Foreground Container for Model */
+        #model-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(0); /* Remove blur from model area */
         }
 
         model-viewer {
-            background-color: transparent; /* Make the model background transparent */
-            --poster-color: transparent;   /* Transparent poster background */
+            background-color: transparent; /* Transparent background */
+            --poster-color: transparent;   /* No loading poster background */
             width: 80%;
             height: 80%;
         }
@@ -25,13 +43,15 @@
 </head>
 <body>
 
-    <!-- Transparent Background + Full Interactivity -->
-    <model-viewer src="Robot.glb"
-                  alt="Animated Robot"
-                  camera-controls
-                  auto-rotate
-                  autoplay>
-    </model-viewer>
+    <!-- Foreground container for model-viewer -->
+    <div id="model-container">
+        <model-viewer src="Robot.glb"
+                      alt="3D Animated Robot"
+                      auto-rotate
+                      autoplay
+                      camera-controls>
+        </model-viewer>
+    </div>
 
 </body>
 </html>
